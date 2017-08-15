@@ -309,5 +309,14 @@ deployJob.with{
       property('mule.username','${MULE_USERNAME}')
       property('mule.password','${MULE_PASSWORD}')
     }
+    shell('''set +x
+      |STATUS=""
+      |while [[ "$STATUS" != "STARTED" ]] ; do
+      |  echo "[INFO] Waiting for deployment to be completed ..."
+      |  STATUS=$(anypoint-cli runtime-mgr cloudhub-application describe -o json helloworld-mk01 | jq -r ."Status")
+      |done
+      |echo "[INFO] Deployment completed successfully"
+      |set -x'''.stripMargin()
+    )
   }
 }
