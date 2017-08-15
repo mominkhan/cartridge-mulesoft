@@ -51,6 +51,9 @@ buildJob.with{
             branch("*/master")
         }
   }
+  triggers{
+      scm('@hourly')
+  }
   environmentVariables {
       env('WORKSPACE_NAME',workspaceFolderName)
       env('PROJECT_NAME',projectFolderName)
