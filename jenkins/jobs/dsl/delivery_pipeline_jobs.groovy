@@ -217,7 +217,7 @@ publishJob.with{
     maskPasswords()
     sshAgent("adop-jenkins-master")
     credentialsBinding {
-      usernamePassword("NEXUS_USER", "NEXUS_PASSWORD", "adop-master-user")
+      usernamePassword("NEXUS_USER", "NEXUS_PASSWORD", "adop-admin-user")
     }
   }
   label("docker")
