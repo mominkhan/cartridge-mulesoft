@@ -272,6 +272,7 @@ deployJob.with{
     preBuildCleanup()
     injectPasswords()
     maskPasswords()
+    timestamps()
     sshAgent("adop-jenkins-master")
     credentialsBinding {
       usernamePassword("NEXUS_USER", "NEXUS_PASSWORD", "adop-admin-user")
