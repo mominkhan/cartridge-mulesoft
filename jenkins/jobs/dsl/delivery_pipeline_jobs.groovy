@@ -315,7 +315,7 @@ deployJob.with{
       |while [[ "$STATUS" != "STARTED" ]] ; do
       |  echo "[INFO] Waiting for deployment to be completed ..."
       |  sleep 5
-      |  STATUS=$(anypoint-cli runtime-mgr cloudhub-application describe -o json helloworld-mk01 | jq -r ."Status")
+      |  STATUS=$(anypoint-cli runtime-mgr cloudhub-application describe -o json ${APPLICATION_NAME} | jq -r ."Status")
       |done
       |echo "[INFO] Deployment completed successfully"
       |set -x'''.stripMargin()
